@@ -20,3 +20,4 @@ clean:
 	rm -f $(TARGET)
 
 include Makefile.part_c
+include Makefile.part_d

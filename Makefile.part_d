@@ -1,0 +1,21 @@
+
+PART_D_TARGET := bin/banker
+PART_D_SOURCE := src/part_d/banker.c
+
+.PHONY: part-d run-part-d test-part-d clean-part-d
+
+$(PART_D_TARGET): $(PART_D_SOURCE)
+	mkdir -p bin
+	$(CC) $(CFLAGS) $(PART_D_SOURCE) -o $(PART_D_TARGET)
+
+part-d: $(PART_D_TARGET)
+
+run-part-d: $(PART_D_TARGET)
+	./$(PART_D_TARGET)
+
+test-part-d: $(PART_D_TARGET)
+	chmod +x tests/part_d/run_tests.sh
+	./tests/part_d/run_tests.sh
+
+clean-part-d:
+	rm -f $(PART_D_TARGET)

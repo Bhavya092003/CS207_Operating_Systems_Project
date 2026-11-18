@@ -1,0 +1,30 @@
+========================================
+   BANKER'S DEADLOCK SAFETY ALGORITHM
+========================================
+
+Enter number of processes: Enter number of resource types: 
+Enter Allocation Matrix (2 x 1):
+P0: P1: 
+Enter Maximum Matrix (2 x 1):
+P0: P1: 
+Enter Available Resources (1 values):
+
+Allocation Matrix:
+Process	R0
+P0	1
+P1	1
+
+Need Matrix:
+Process	R0
+P0	2
+P1	1
+
+Available Resources: [0]
+
+Safety Algorithm Execution:
+----------------------------------------
+----------------------------------------
+
+RESULT: SYSTEM IS IN AN UNSAFE STATE.
+No safe sequence exists for the given state.
+This does not automatically mean that a deadlock has already occurred.

@@ -1,0 +1,37 @@
+========================================
+   BANKER'S DEADLOCK SAFETY ALGORITHM
+========================================
+
+Enter number of processes: Enter number of resource types: 
+Enter Allocation Matrix (3 x 2):
+P0: P1: P2: 
+Enter Maximum Matrix (3 x 2):
+P0: P1: P2: 
+Enter Available Resources (2 values):
+
+Allocation Matrix:
+Process	R0	R1
+P0	1	0
+P1	0	1
+P2	1	1
+
+Need Matrix:
+Process	R0	R1
+P0	1	1
+P1	1	1
+P2	1	1
+
+Available Resources: [1 1]
+
+Safety Algorithm Execution:
+----------------------------------------
+P0 can execute. Work = [1 1]
+P0 finishes and releases its resources.
+P1 can execute. Work = [2 1]
+P1 finishes and releases its resources.
+P2 can execute. Work = [2 2]
+P2 finishes and releases its resources.
+----------------------------------------
+
+RESULT: SYSTEM IS IN A SAFE STATE.
+One safe sequence is: P0 -> P1 -> P2
