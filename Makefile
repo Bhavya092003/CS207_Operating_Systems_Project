@@ -18,3 +18,5 @@ test: $(TARGET)
 
 clean:
 	rm -f $(TARGET)
+
+include Makefile.part_c

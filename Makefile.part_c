@@ -1,0 +1,25 @@
+PART_C_TARGET := bin/producer_consumer
+PART_C_SOURCE := src/part_c/producer_consumer.c
+
+.PHONY: part-c run-part-c test-part-c clean-part-c
+
+all: $(PART_C_TARGET)
+
+$(PART_C_TARGET): $(PART_C_SOURCE)
+	mkdir -p bin
+	$(CC) $(CFLAGS) -pthread $(PART_C_SOURCE) -o $(PART_C_TARGET)
+
+part-c: $(PART_C_TARGET)
+
+run-part-c: $(PART_C_TARGET)
+	./$(PART_C_TARGET)
+
+test: test-part-c
+
+test-part-c: $(PART_C_TARGET)
+	./tests/part_c/run_tests.sh
+
+clean: clean-part-c
+
+clean-part-c:
+	rm -f $(PART_C_TARGET)

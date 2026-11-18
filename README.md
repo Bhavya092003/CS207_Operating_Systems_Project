@@ -54,3 +54,36 @@ To test a different quantum:
 ## Linux terminal screenshots
 
 Run the program in a terminal with a readable font size, then capture the terminal using your desktop screenshot shortcut. Save screenshots under `screenshots/part_b/`. For example, on GNOME use `Print Screen`; from a terminal you can also use `gnome-screenshot` if installed.
+
+
+# Part C — POSIX Threads and Producer–Consumer Synchronization
+
+Part C is implemented in `src/part_c/producer_consumer.c`. It uses two producer threads, two consumer threads, a circular buffer of capacity 5, a pthread mutex, and the POSIX counting semaphores `empty_slots` and `full_slots`.
+
+## Build and run
+
+Add this line at the end of the existing root `Makefile` once:
+
+```make
+include Makefile.part_c
+```
+
+Then run:
+
+```bash
+make part-c
+./bin/producer_consumer
+./bin/producer_consumer 250
+make test-part-c
+```
+
+The default execution processes 100 items. An optional item count from 100 to 1,000,000 can be supplied. The program logs each producer and consumer operation and verifies that every item was consumed exactly once.
+
+For a saved run:
+
+```bash
+mkdir -p outputs screenshots/part_c
+./bin/producer_consumer 100 | tee outputs/part_c-producer-consumer.txt
+```
+
+See [`docs/part_c_producer_consumer.md`](docs/part_c_producer_consumer.md) for the algorithm, synchronization explanation, deliberately incorrect pseudocode, tests, and report material.
