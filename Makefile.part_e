@@ -1,0 +1,19 @@
+PART_E_TARGET := bin/memory_disk
+PART_E_SOURCE := src/part_e/memory_disk.c
+
+.PHONY: part-e run-part-e test-part-e clean-part-e
+
+$(PART_E_TARGET): $(PART_E_SOURCE)
+	mkdir -p bin
+	$(CC) $(CFLAGS) $(PART_E_SOURCE) -o $(PART_E_TARGET)
+
+part-e: $(PART_E_TARGET)
+
+run-part-e: $(PART_E_TARGET)
+	./$(PART_E_TARGET) < tests/part_e/test1.txt
+
+test-part-e: $(PART_E_TARGET)
+	bash tests/part_e/run_tests.sh
+
+clean-part-e:
+	rm -f $(PART_E_TARGET)

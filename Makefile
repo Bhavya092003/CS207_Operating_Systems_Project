@@ -21,3 +21,4 @@ clean:
 
 include Makefile.part_c
 include Makefile.part_d
+include Makefile.part_e

@@ -1,0 +1,54 @@
+
+========== FIFO PAGE REPLACEMENT ==========
+Reference	Frames		Result
+1		[ 1 - - - ]	PAGE FAULT
+2		[ 1 2 - - ]	PAGE FAULT
+3		[ 1 2 3 - ]	PAGE FAULT
+4		[ 1 2 3 4 ]	PAGE FAULT
+1		[ 1 2 3 4 ]	HIT
+2		[ 1 2 3 4 ]	HIT
+5		[ 5 2 3 4 ]	PAGE FAULT
+1		[ 5 1 3 4 ]	PAGE FAULT
+2		[ 5 1 2 4 ]	PAGE FAULT
+3		[ 5 1 2 3 ]	PAGE FAULT
+4		[ 4 1 2 3 ]	PAGE FAULT
+5		[ 4 5 2 3 ]	PAGE FAULT
+Total page faults (FIFO): 10
+
+========== LRU PAGE REPLACEMENT ==========
+Reference	Frames		Result
+1		[ 1 - - - ]	PAGE FAULT
+2		[ 1 2 - - ]	PAGE FAULT
+3		[ 1 2 3 - ]	PAGE FAULT
+4		[ 1 2 3 4 ]	PAGE FAULT
+1		[ 1 2 3 4 ]	HIT
+2		[ 1 2 3 4 ]	HIT
+5		[ 1 2 5 4 ]	PAGE FAULT
+1		[ 1 2 5 4 ]	HIT
+2		[ 1 2 5 4 ]	HIT
+3		[ 1 2 5 3 ]	PAGE FAULT
+4		[ 1 2 4 3 ]	PAGE FAULT
+5		[ 5 2 4 3 ]	PAGE FAULT
+Total page faults (LRU): 8
+
+========== FCFS DISK SCHEDULING ==========
+Initial head position: 100
+Service order: 100 -> 55 (movement: 45)
+ -> 58 (movement: 3)
+ -> 39 (movement: 19)
+ -> 18 (movement: 21)
+ -> 90 (movement: 72)
+ -> 160 (movement: 70)
+ -> 150 (movement: 10)
+Total head movement (FCFS): 240
+
+========== SSTF DISK SCHEDULING ==========
+Initial head position: 100
+Service order: 100 -> 90 (movement: 10)
+ -> 58 (movement: 32)
+ -> 55 (movement: 3)
+ -> 39 (movement: 16)
+ -> 18 (movement: 21)
+ -> 150 (movement: 132)
+ -> 160 (movement: 10)
+Total head movement (SSTF): 224
